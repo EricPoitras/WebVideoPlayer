@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+      <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	   <script src="js/etherpad.js"></script>
+    <title>Hello, world!</title>
+      
+    <style>
+        #examplePadBasic, #examplePadBasic iframe{
+            width: 100%;
+            height: 100%;
+        }
+        .row{
+            height: 100vh;
+        }
+        .col{
+            height: 100%;
+        }
+    </style>
+      
+  </head>
+  <body id="home">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col p-0">
+                <div style="background-color: black; padding: 25px;">
+                    <video id="myVideo" width="100%" controls>
+                        <source id="myVideoSource" src="vid/Pexels%20Videos%201350205.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <!-- Custom Controls for Videos -->
+                    <!--<div style="height:20px;background-color:lightsteelblue;">
+                        <div style="background-color:gray;width: 50px;margin-left: 50px;height:100%;"></div>
+                    </div>-->
+                </div>
+                <!-- https://www.w3schools.com/tags/ref_av_dom.asp -->
+                <div id="demo">
+                    <p>Autoplay: <span id="autoplay"></span></p>
+                    <p>Controls: <span id="controls"></span></p>
+                    <p>CurrentTime: <span id="currentTime"></span></p>
+                    <p>Duration: <span id="duration"></span></p>
+                    <p>Ended: <span id="ended"></span></p>
+                    <p>Paused: <span id="paused"></span></p>
+                    <p>Played Start: <span id="playedstart"></span></p>
+                    <p>Played End: <span id="playedend"></span></p>
+                    <p>Seeking: <span id="seeking"></span></p>
+                    <p>Seekable Start: <span id="seekablestart"></span></p>
+                    <p>Seekable End: <span id="seekableend"></span></p>
+                </div>
+            </div>
+            <div class="col-6">
+                <div id="examplePadBasic"></div>
+            </div>
+        </div>  
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+      
+    <script type="text/javascript">
+        // The most basic example
+	   $('#examplePadBasic').pad({'padId':'test'}); // sets the pad id and puts the pad in the div
+	</script>
+      
+    <script>
+        var vid = document.getElementById("myVideo");
+        var source = document.getElementById("myVideoSource");
+        
+        function myFunction() { 
+            console.log(source.src);
+            console.log(vid.autoplay);
+            console.log(vid.controls);
+            console.log(vid.currentTime);
+            console.log(vid.duration);
+            console.log(vid.ended);
+            console.log(vid.paused);
+            console.log(vid.played.start(0));
+            console.log(vid.played.end(0));
+            console.log(vid.seeking);
+            console.log(vid.seekable.start(0));
+            console.log(vid.seekable.end(0));
+            document.getElementById("autoplay").innerHTML = vid.autoplay;
+            document.getElementById("controls").innerHTML = vid.controls;
+            document.getElementById("currentTime").innerHTML = vid.currentTime;
+            document.getElementById("duration").innerHTML = vid.duration;
+            document.getElementById("ended").innerHTML = vid.ended;
+            document.getElementById("paused").innerHTML = vid.paused;
+            document.getElementById("playedstart").innerHTML = vid.played.start(0);
+            document.getElementById("playedend").innerHTML = vid.played.end(0);
+            document.getElementById("seeking").innerHTML = vid.seeking;
+            document.getElementById("seekablestart").innerHTML = vid.seekable.start(0);
+            document.getElementById("seekableend").innerHTML = vid.seekable.end(0);
+        } 
+        
+        vid.oncanplay = function() {
+            //alert("Can start playing video");
+            myFunction();
+        };
+        vid.ondurationchange = function() {
+            //alert("The video duration has changed");
+            myFunction();
+        };
+        vid.onpause = function() {
+            //alert("The video has been paused");
+            myFunction();
+        };
+        vid.onplay = function() {
+            //alert("The video has started to play");
+            myFunction();
+        };
+        vid.onplaying = function() {
+            //alert("The video is now playing");
+            myFunction();
+        };
+        vid.onseeked = function() {
+            //alert("Seek operation completed!");
+            myFunction();
+        };
+        vid.onseeking = function() {
+            //alert("Seek operation began!");
+            myFunction();
+        };
+        vid.ontimeupdate = function() {
+            myFunction();
+        };
+        
+    </script>
+      
+  </body>
+</html>
