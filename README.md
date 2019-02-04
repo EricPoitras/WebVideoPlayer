@@ -1,3 +1,5 @@
+Cloned the etherpad demo example and made slight adjustments... work in progress.
+
 # Resources
 Sites that can host pads: https://github.com/ether/etherpad-lite/wiki/Sites-that-run-Etherpad-Lite
 Check out: https://pad.ouvaton.coop/ (pads removed after 400 days of inactivity)
