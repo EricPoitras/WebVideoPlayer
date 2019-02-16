@@ -2,12 +2,12 @@
 
   $.fn.pad = function( options ) {
     var settings = {
-      'host'              : 'http://beta.etherpad.org',
-      'baseUrl'           : '/p/',
+      'host'              : 'https://etherpad.wikimedia.org',
+      'baseUrl'           : '/p/ASSISTlab',
       'showControls'      : true,
       'showChat'          : true,
       'showLineNumbers'   : true,
-      'userName'          : 'test',
+      'userName'          : 'username',
       'lang'              : '',
       'useMonospaceFont'  : false,
       'noColors'          : false,
