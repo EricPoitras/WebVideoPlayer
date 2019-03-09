@@ -366,6 +366,7 @@
        <script>
       var start = 1;
       var query;
+           var search_content;
         
       function script() {
           query = document.getElementById('gsc-i-id1').value;
@@ -375,14 +376,14 @@
       function hasClass(elem, className) {
         return elem.className.split(' ').indexOf(className) > -1;
       }
-
+    /*
       document.getElementById('getJSON').onclick = function () {
           script();
           var hrefvalue = "https://www.googleapis.com/customsearch/v1?key=AIzaSyCxg0zU9Nu9FO1HoQKobjUasVwnupgNBiI&cx= 006926779689735145395:ul476h9kpbs&q="+query+"&start="+start;
           console.log(hrefvalue);
           window.open(hrefvalue, '_blank');
       };
-        
+      */  
       document.addEventListener('click', function (e) {
             if (hasClass(e.target, 'gsc-cursor-page')) {
                 // .bu clicked
@@ -391,7 +392,11 @@
                 start = ((10*page)-9);
                 console.log(e.target.textContent);
                 console.log(start);
-            } 
+            } else if(hasClass(e.target, 'gs-snippet')){
+                console.log(e.target.textContent);
+                search_content = document.getElementsByClassName('ql-editor')[0];
+                search_content.innerHTML += "<p>"+e.target.textContent+"</p>";
+            }
         }, false);
     </script>
       
